@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Catalogue {
 
   private int counter = 0;
@@ -11,12 +13,17 @@ public class Catalogue {
     this.items = new Item[number];
   }
 
+
+
+
   public void addItem (Item i){
 // har attributterne: category, description, available
       items[counter++] = i;
     }
 
    public Item[] getFullList(){
+     System.out.println(Arrays.toString(items));
+
      return items;
    }
 
@@ -32,7 +39,26 @@ public class Catalogue {
     return availables;
    }
 
+   public void findItem(String searchName){
+     for (int i = 0; i < items.length ; i++) {
+        if (items[i].equals(searchName)){
+        }
+     }
+   }
+
+
+  public void borrowItem(){
+    //changeAvailability();
+    }
+
+
+  public void returnItem(){
+
   }
+
+
+
+}
 
 /*
 metoder til at:

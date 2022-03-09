@@ -34,6 +34,19 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
+        switch (choice) {
+            case 1 -> catalogue.getFullList(); //Se hele kataloget
+            case 2 -> catalogue.getAvailableItems(); // Se hvad der er ledigt
+           // case 3 -> catalogue.addItem();   // Opret ting til udlån
+            case 4 -> catalogue.borrowItem(); // Lån ting
+            case 5 -> catalogue.returnItem();
+            default -> {
+                System.out.println("Du foretog et ugyldigt valg.");
+            }
+        }
+
+
+
         // Decide what to do based on user choice
         if (choice == 1) { // get all items in cataloque
             Item[] allItems = catalogue.getFullList();
@@ -53,26 +66,25 @@ public class Main {
             catalogue.addItem(new Item("Sport", "Tennisbolde"));
             // System.out.println(Arrays.toString(catalogue.getFullList()));
         }
-        /*else if (choice == 4) { // make item unavailable
+        /*
+        else if (choice == 4) { // make item unavailable
             // Hardcoded search criteria Skateboard
             Item found = catalogue.findItem("Skateboard");
             catalogue.borrowItem(found);
-        } else if (choice == 5) { // make item available again
+        }
+
+        else if (choice == 5) { // make item available again
             // Hardcoded search criteria Skateboard
-            Item found = catalogue.findItem("Skateboard");
+            Item found = catalogue.findItem();
             catalogue.returnItem(found);
         } else { // invalid choice
             System.out.println("Du foretog et ugyldigt valg.");
         }
 
+
          */
 
-
-
-
-
     }
-
 }
 
 
