@@ -1,15 +1,13 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Exercise Part 1: Create Catalogue and Item classes
-        // Create a catalogue with size 10
         Catalogue catalogue = new Catalogue(10);
-
 
         //Create items and add to catalogue
         Item item1 = new Item("Sport", "Skateboard");
@@ -50,10 +48,12 @@ public class Main {
             }
         }
 
-        /*else if (choice == 3) { // Add new Item to catalogue
+        else if (choice == 3) { // Add new Item to catalogue
             // Hardcoded values for new Item
             catalogue.addItem(new Item("Sport", "Tennisbolde"));
-        } else if (choice == 4) { // make item unavailable
+            // System.out.println(Arrays.toString(catalogue.getFullList()));
+        }
+        /*else if (choice == 4) { // make item unavailable
             // Hardcoded search criteria Skateboard
             Item found = catalogue.findItem("Skateboard");
             catalogue.borrowItem(found);
@@ -65,8 +65,10 @@ public class Main {
             System.out.println("Du foretog et ugyldigt valg.");
         }
 
-
          */
+
+
+
 
 
     }

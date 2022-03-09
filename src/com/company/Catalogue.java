@@ -18,7 +18,7 @@ public class Catalogue {
 
    public Item[] getFullList(){
      return items;
-   }// for loop filtrere null fra
+   }
 
    public Item[] getAvailableItems(){
     Item[] availables = new Item[items.length];
