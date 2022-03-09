@@ -15,4 +15,17 @@ public class Item {
   this.item=item;
   isAvailable = true;
   }
+
+  public boolean checkAvailability(){
+    return isAvailable;
+  }
+
+  public void changeAvailability(){
+    if(isAvailable == true){
+      isAvailable = false;
+    } else{
+      isAvailable = true;
+    }
+  }
+
 }

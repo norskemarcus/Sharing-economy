@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class TestSharedRessources {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -42,14 +42,15 @@ public class TestSharedRessources {
             for (int i = 0; i < allItems.length; i++) {
                 System.out.println(allItems[i]);
             }
-        /*
-
-        } else if (choice == 2) { // get available items in cataloque
+        }
+        else if (choice == 2) { // get available items in cataloque
             Item[] availableItems = catalogue.getAvailableItems();
             for (int i = 0; i < availableItems.length; i++) {
                 System.out.println(availableItems[i]);
             }
-        } else if (choice == 3) { // Add new Item to catalogue
+        }
+
+        /*else if (choice == 3) { // Add new Item to catalogue
             // Hardcoded values for new Item
             catalogue.addItem(new Item("Sport", "Tennisbolde"));
         } else if (choice == 4) { // make item unavailable
@@ -64,10 +65,11 @@ public class TestSharedRessources {
             System.out.println("Du foretog et ugyldigt valg.");
         }
 
+
          */
+
+
     }
-
-
 
 }
 

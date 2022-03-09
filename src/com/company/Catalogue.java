@@ -18,10 +18,19 @@ public class Catalogue {
 
    public Item[] getFullList(){
      return items;
+   }// for loop filtrere null fra
+
+   public Item[] getAvailableItems(){
+    Item[] availables = new Item[items.length];
+
+     for (int i = 0; i < items.length ; i++) {
+       Item temp = items[i];
+       if(temp != null && temp.checkAvailability()){ // er temp forskellig fra null
+         availables[i] = temp;
+       }
+     }
+    return availables;
    }
-
-// for loop filtrere null fra
-
 
   }
 
