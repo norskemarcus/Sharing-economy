@@ -11,11 +11,18 @@ public class Catalogue {
     this.items = new Item[number];
   }
 
-    public void addItem (Item i){
+  public void addItem (Item i){
 // har attributterne: category, description, available
       items[counter++] = i;
-
     }
+
+   public Item[] getFullList(){
+     return items;
+   }
+
+// for loop filtrere null fra
+
+
   }
 
 /*

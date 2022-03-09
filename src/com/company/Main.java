@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Main {
+public class TestSharedRessources {
 
     public static void main(String[] args) {
 
@@ -14,9 +14,6 @@ public class Main {
         //Create items and add to catalogue
         Item item1 = new Item("Sport", "Skateboard");
         catalogue.addItem(item1);
-        System.out.println(item1);
-
-
         Item item2 = new Item("Sport", "Mountainbike");
         catalogue.addItem(item2);
         Item item3 = new Item("Tøj", "Smoking");
@@ -38,13 +35,15 @@ public class Main {
         // Read user choice
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
-/*
+
         // Decide what to do based on user choice
         if (choice == 1) { // get all items in cataloque
             Item[] allItems = catalogue.getFullList();
             for (int i = 0; i < allItems.length; i++) {
                 System.out.println(allItems[i]);
             }
+        /*
+
         } else if (choice == 2) { // get available items in cataloque
             Item[] availableItems = catalogue.getAvailableItems();
             for (int i = 0; i < availableItems.length; i++) {
@@ -63,7 +62,9 @@ public class Main {
             catalogue.returnItem(found);
         } else { // invalid choice
             System.out.println("Du foretog et ugyldigt valg.");
-        }*/
+        }
+
+         */
     }
 
 
