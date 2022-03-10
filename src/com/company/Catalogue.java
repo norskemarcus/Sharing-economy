@@ -20,9 +20,10 @@ public class Catalogue {
     }
 
    public void addItemMenu(){
-     // Scanner input ind her
      Scanner sc = new Scanner(System.in);
+     System.out.println("Hvilken kategori vil du tilføje?");
      String par1 = sc.nextLine();
+     System.out.println("Hvilken genstand vil du tilføje?");
      String par2 = sc.nextLine();
      addItem(new Item(par1, par2));
      System.out.println(Arrays.toString(getFullList()));
@@ -30,15 +31,22 @@ public class Catalogue {
 
 
    public Item[] getFullList(){
-     //System.out.println(Arrays.toString(items));
+     Item[] availables = new Item[counter];
 
+     for (int i = 0; i < counter ; i++) {
+       Item temp = items[i];
+       if (temp != null){
+         System.out.println(temp);
+       }
+     }
+      //TODO: Fjerne nuller
      return items;
    }
 
    public Item[] getAvailableItems(){
-    Item[] availables = new Item[items.length];
+    Item[] availables = new Item[counter];
 
-     for (int i = 0; i < items.length ; i++) {
+     for (int i = 0; i < counter ; i++) {
        Item temp = items[i];
        if(temp != null && temp.showAvailability()){ // er temp forskellig fra null
          availables[i] = temp;
@@ -48,7 +56,7 @@ public class Catalogue {
    }
 
    public Item findItem(String searchName){
-     for (int i = 0; i < items.length ; i++) {
+     for (int i = 0; i < counter ; i++) {
        Item temp = items[i];
         if (temp != null && temp.getDescription().equals(searchName)){
           return temp;
@@ -59,12 +67,12 @@ public class Catalogue {
 
 
   public void borrowItem(Item found){
-    found.makeAvailable();
+    found.makeUnavailable();
     }
 
 
   public Item returnItem(Item found){
-
+    found.makeAvailable();
     return found;
   }
 }

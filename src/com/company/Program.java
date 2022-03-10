@@ -30,7 +30,8 @@ public class Program {
       System.out.println("4. Lån ting");
       System.out.println("5. Aflever ting");
       System.out.println("0. Afslut program");
-      System.out.println("\nTast ind dit menuvalg: ");
+      System.out.print("\nTast ind dit menuvalg: ");
+
       choice = input.nextInt();
 
 
@@ -49,18 +50,21 @@ public class Program {
           }
         }
 
-        case 3 -> {
-          catalogue.addItemMenu();  // Opret ting til udlån
-        }
-        //TODO: CHECK DETTE
-
-        case 4 -> {
-          Item found = catalogue.findItem("Skateboard");
-          catalogue.borrowItem(found); // Lån ting
+        case 3 -> {// Opret ting til udlån
+          catalogue.addItemMenu();
         }
 
-        case 5 -> {
-          System.out.println("Hvad vil du søge efter?");
+
+        case 4 -> {   // Lån ting
+          catalogue.getAvailableItems();
+          System.out.println("Hvad vil du låne? ");
+          String search = input.nextLine();
+          Item found = catalogue.findItem(search);
+          catalogue.borrowItem(found);
+        }
+
+        case 5 -> { //Aflevere ting
+          System.out.println("Hvad vil du aflevere?");
           String description = input.nextLine();
 
           Item found = catalogue.findItem(description);

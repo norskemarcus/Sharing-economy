@@ -4,9 +4,10 @@ public class Item {
 
   private String category;
   private String description;
-  private boolean isAvailable;
+  private boolean isAvailable; //attributter, variabel som tilhører et objekt
 
   public String toString() {
+    // Ændre true til ledig
     return category + " " + description + " " + isAvailable;
   }
 
@@ -15,18 +16,16 @@ public class Item {
   }
 
   public Item(String category, String item) {
-    this.category = category;
-    this.description = item;
-    this.isAvailable = true;
+    this(category, item, true);
   }
-/*
+
+
   public Item(String category, String item, boolean available) {
     this.category = category;
     this.description = item;
-    this.isAvailable = true;
+    this.isAvailable = available;
   }
 
- */
 
   public boolean showAvailability(){
     return isAvailable;
@@ -41,9 +40,7 @@ public class Item {
     isAvailable = true;
   }
 
-  public void setAvailable(boolean available) {
-    this.isAvailable = available;
   }
 
-}
+
 
