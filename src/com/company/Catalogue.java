@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Catalogue {
 
@@ -14,15 +15,22 @@ public class Catalogue {
   }
 
 
-
-
   public void addItem (Item i){
-// har attributterne: category, description, available
       items[counter++] = i;
     }
 
+   public void addItemMenu(){
+     // Scanner input ind her
+     Scanner sc = new Scanner(System.in);
+     String par1 = sc.nextLine();
+     String par2 = sc.nextLine();
+     addItem(new Item(par1, par2));
+     System.out.println(Arrays.toString(getFullList()));
+   }
+
+
    public Item[] getFullList(){
-     System.out.println(Arrays.toString(items));
+     //System.out.println(Arrays.toString(items));
 
      return items;
    }
@@ -32,40 +40,32 @@ public class Catalogue {
 
      for (int i = 0; i < items.length ; i++) {
        Item temp = items[i];
-       if(temp != null && temp.checkAvailability()){ // er temp forskellig fra null
+       if(temp != null && temp.showAvailability()){ // er temp forskellig fra null
          availables[i] = temp;
        }
      }
     return availables;
    }
 
-   public void findItem(String searchName){
+   public Item findItem(String searchName){
      for (int i = 0; i < items.length ; i++) {
-        if (items[i].equals(searchName)){
+       Item temp = items[i];
+        if (temp != null && temp.getDescription().equals(searchName)){
+          return temp;
         }
      }
+     return null; // "Det var ingen match"
    }
 
 
-  public void borrowItem(){
-    //changeAvailability();
+  public void borrowItem(Item found){
+    found.makeAvailable();
     }
 
 
-  public void returnItem(){
+  public Item returnItem(Item found){
 
+    return found;
   }
-
-
-
 }
 
-/*
-metoder til at:
-tilføje en ressource (tilføje Item objekt til arrayet)
-finde en ressource (returnere Item objekt baseret på item description).
-markere en ressource som udlånt (pågældende Item objekts available attribut sættes false)
-markere at en ressource er kommet retur (modsat ovenfor)
-finde alle ressourcer på lager (returnere hele arrayet)
-finde alle tilgængelige ressource på lager (returnere et array med de Item objekter, hvor available attributten er true).
- */

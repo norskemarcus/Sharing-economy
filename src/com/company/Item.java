@@ -19,12 +19,14 @@ public class Item {
     this.description = item;
     this.isAvailable = true;
   }
-
+/*
   public Item(String category, String item, boolean available) {
     this.category = category;
     this.description = item;
     this.isAvailable = true;
   }
+
+ */
 
   public boolean showAvailability(){
     return isAvailable;

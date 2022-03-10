@@ -11,6 +11,16 @@ public class Program {
     Scanner input = new Scanner(System.in);
     int choice = -1;
 
+    //Create items and add to catalogue
+    Item item1 = new Item("Sport", "Skateboard");
+    catalogue.addItem(item1);
+    Item item2 = new Item("Sport", "Mountainbike");
+    catalogue.addItem(item2);
+    Item item3 = new Item("Tøj", "Smoking");
+    catalogue.addItem(item3);
+    Item item4 = new Item("Tøj", "Pailletkjole");
+    catalogue.addItem(item4);
+
     while (choice != 0) {
 
       System.out.println("Hvad kunne du tænke dig?");
@@ -42,7 +52,7 @@ public class Program {
         case 3 -> {
           catalogue.addItemMenu();  // Opret ting til udlån
         }
-
+        //TODO: CHECK DETTE
 
         case 4 -> {
           Item found = catalogue.findItem("Skateboard");
