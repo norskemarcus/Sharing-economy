@@ -3,28 +3,45 @@ package com.company;
 public class Item {
 
   private String category;
-  private String item;
+  private String description;
   private boolean isAvailable;
 
-  public String toString(){
-    return category + " " + item;
+  public String toString() {
+    return category + " " + description + " " + isAvailable;
   }
 
-  public Item (String category, String item){
-  this.category = category;
-  this.item=item;
-  isAvailable = true;
+  public String getDescription(){
+    return description;
   }
 
-  public boolean checkAvailability(){
+  public Item(String category, String item) {
+    this.category = category;
+    this.description = item;
+    this.isAvailable = true;
+  }
+
+  public Item(String category, String item, boolean available) {
+    this.category = category;
+    this.description = item;
+    this.isAvailable = true;
+  }
+
+  public boolean showAvailability(){
     return isAvailable;
   }
 
-  public void changeAvailability(){
-    if(isAvailable == true){
+  public void makeUnavailable(){
       isAvailable = false;
-    } else{
-      isAvailable = true;
-    }
   }
+
+
+  public void makeAvailable() {
+    isAvailable = true;
+  }
+
+  public void setAvailable(boolean available) {
+    this.isAvailable = available;
+  }
+
 }
+
