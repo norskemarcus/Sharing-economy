@@ -3,10 +3,13 @@ package com.company;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
+
 public class Catalogue {
 
-  private int counter = 0;
+  Scanner sc = new Scanner(System.in);
 
+  private int counter = 0;
   private Item[] items;
 
 
@@ -20,7 +23,6 @@ public class Catalogue {
     }
 
    public void addItemMenu(){
-     Scanner sc = new Scanner(System.in);
      System.out.println("Hvilken kategori vil du tilføje?");
      String par1 = sc.nextLine();
      System.out.println("Hvilken genstand vil du tilføje?");
@@ -31,7 +33,7 @@ public class Catalogue {
 
 
    public Item[] getFullList(){
-     Item[] availables = new Item[counter];
+     Item[] availables = new Item[counter]; //TODO: Kan denne flyttes op?
 
      for (int i = 0; i < counter ; i++) {
        Item temp = items[i];
@@ -39,24 +41,26 @@ public class Catalogue {
          System.out.println(temp);
        }
      }
-      //TODO: Fjerne nuller
+     System.out.println(" ");
      return items;
    }
 
    public Item[] getAvailableItems(){
     Item[] availables = new Item[counter];
 
-     for (int i = 0; i < counter ; i++) {
+     for (int i = 0; i < items.length ; i++) {
        Item temp = items[i];
        if(temp != null && temp.showAvailability()){ // er temp forskellig fra null
          availables[i] = temp;
        }
      }
-    return availables;
+     System.out.println(" ");
+     return availables;
    }
 
+
    public Item findItem(String searchName){
-     for (int i = 0; i < counter ; i++) {
+     for (int i = 0; i < items.length ; i++) {
        Item temp = items[i];
         if (temp != null && temp.getDescription().equals(searchName)){
           return temp;
@@ -71,9 +75,8 @@ public class Catalogue {
     }
 
 
-  public Item returnItem(Item found){
+  public void returnItem(Item found){
     found.makeAvailable();
-    return found;
   }
 }
 

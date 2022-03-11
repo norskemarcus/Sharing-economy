@@ -17,7 +17,7 @@ public class TestSharedRessources {
         Item item4 = new Item("Tøj", "Pailletkjole");
         catalogue.addItem(item4);
 
-    program.userProgram();
+    program.mainMenu();
     }
 
 }
