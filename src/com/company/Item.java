@@ -8,9 +8,9 @@ public class Item {
 
   public String toString() {
     if (!isAvailable) {
-      return "Category: " + category + "\nDescription: " + description + "\nLedig?: " + isAvailable + "\n";
+      return "Kategori: " + category  + "\nGenstand: " + description + "\nLedig? " + isAvailable + "\n";
     } else {
-      return "Category: " + category + "\nDescription: " + description + "\nLedig?: " + isAvailable + "\n";
+      return "Kategori: " + category + "\nGenstand: " + description + "\nLedig? " + isAvailable + "\n";
     }
   }
 

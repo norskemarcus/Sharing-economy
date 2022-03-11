@@ -22,16 +22,20 @@ public class Catalogue {
 
    public void addItemMenu(){
      System.out.println("Hvilken kategori vil du tilføje?");
-     String par1 = sc.nextLine();
+     String kategori = sc.nextLine();
      System.out.println("Hvilken genstand vil du tilføje?");
-     String par2 = sc.nextLine();
-     addItem(new Item(par1, par2));
-     System.out.println(Arrays.toString(getFullList()));
+     String genstand = sc.nextLine();
+     addItem(new Item(kategori, genstand));
+     String kategoriLower = kategori.toLowerCase();
+     String genstandLower = genstand.toLowerCase();
+
+     System.out.println("Du har nu afleveret " + genstandLower + " i kategorien " + kategoriLower);
+     System.out.println("Tak for dit bidrag til fællesskabet!");
+     System.out.println(" ");
    }
 
 
    public Item[] getFullList(){
-    // Item[] availables = new Item[counter];
 
      for (int i = 0; i < counter ; i++) {
        Item temp = items[i];
@@ -40,7 +44,7 @@ public class Catalogue {
        }
      }
      System.out.println(" ");
-     return items;
+     return items; // never used
    }
 
    public Item[] getAvailableItems(){
@@ -58,11 +62,10 @@ public class Catalogue {
 
 
    public Item findItem(String searchName){
-     for (int i = 0; i < items.length ; i++) {
-       Item temp = items[i];
-        if (temp != null && temp.getDescription().equals(searchName)){
-          return temp;
-        }
+     for (Item temp : items) {
+       if (temp != null && temp.getDescription().equals(searchName)) {
+         return temp;
+       }
      }
      return null; // "Det var ingen match"
    }

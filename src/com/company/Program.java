@@ -11,7 +11,7 @@ public class Program {
     Scanner input = new Scanner(System.in);
     int choice = -1;
 
-  //Create items and add to catalogue --> Hvorfor gemmes ikke de indleverede ting?
+    //Create items and add to catalogue --> Hvorfor gemmes ikke de indleverede ting?
     Item item1 = new Item("Sport", "Skateboard");
     catalogue.addItem(item1);
     Item item2 = new Item("Sport", "Mountainbike");
@@ -43,50 +43,56 @@ public class Program {
 
       switch (choice) {
         case 1 -> // Se hele kataloget
-          catalogue.getFullList();
+            catalogue.getFullList();
 
         case 2 -> {
           // Se hvad der er ledigt
           Item[] availableItems = catalogue.getAvailableItems();
           System.out.println("Dette er ledig per dags dato: ");
 
-          for (int i = 0; i < availableItems.length; i++) {
-            System.out.println(availableItems[i]);
+          for (Item availableItem : availableItems) {
+            System.out.println(availableItem);
           }
           System.out.println(" ");
         }
 
 
-        case 3 -> {// Opret ting til udlån
+        case 3 -> // Opret ting til udlån
           catalogue.addItemMenu();
-        }
+
 
 
         case 4 -> {   // Lån ting
           catalogue.getAvailableItems();
+
           System.out.println("Hvad vil du låne? ");
           input.nextLine(); // OBS: undgå scannerbug!
           String search = input.nextLine();
           Item found = catalogue.findItem(search);
           catalogue.borrowItem(found);
-          System.out.println("Du har nu lånt " + search);
+          String searchLower = search.toLowerCase();
+
+          System.out.println("Du har nu lånt " + searchLower + ".");
+          System.out.println("Husk at aflevere indenfor 2 uger.");
           System.out.println(" ");
         }
+
 
         case 5 -> { //Aflevere ting
           System.out.println("Hvad vil du aflevere?");
           input.nextLine(); // OBS: undgå scannerbug!
           String description = input.nextLine();
           Item found = catalogue.findItem(description);
-          System.out.println("Du har nu afleveret " + description);
+          System.out.println("Du har nu afleveret " + description + ".");
+          System.out.println("Tak for at du afleverede indenfor fristen!");
           System.out.println(" ");
           catalogue.returnItem(found);
         }
 
-        default -> {
+        default ->
           System.out.println("Du foretog et ugyldigt valg.");
 
-        }
+
       }
     }
   }
