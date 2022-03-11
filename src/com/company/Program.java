@@ -11,17 +11,19 @@ public class Program {
     Scanner input = new Scanner(System.in);
     int choice = -1;
 
-  //Create items and add to catalogue
+  //Create items and add to catalogue --> Hvorfor gemmes ikke de indleverede ting?
     Item item1 = new Item("Sport", "Skateboard");
     catalogue.addItem(item1);
     Item item2 = new Item("Sport", "Mountainbike");
     catalogue.addItem(item2);
-    Item item3 = new Item("Tøj", "Smoking");
+    Item item3 = new Item("Sport", "Skøjter");
     catalogue.addItem(item3);
-    Item item4 = new Item("Tøj", "Pailletkjole");
+    Item item4 = new Item("Sport", "Ski");
     catalogue.addItem(item4);
-
-
+    Item item5 = new Item("Sport", "Staver");
+    catalogue.addItem(item5);
+    Item item6 = new Item("Sport", "Skistøvler");
+    catalogue.addItem(item6);
 
     System.out.println("Velkommen til delingsplatformen for andelsforeningen");
 
@@ -67,7 +69,8 @@ public class Program {
           String search = input.nextLine();
           Item found = catalogue.findItem(search);
           catalogue.borrowItem(found);
-          System.out.println(found);
+          System.out.println("Du har nu lånt " + search);
+          System.out.println(" ");
         }
 
         case 5 -> { //Aflevere ting
@@ -75,6 +78,8 @@ public class Program {
           input.nextLine(); // OBS: undgå scannerbug!
           String description = input.nextLine();
           Item found = catalogue.findItem(description);
+          System.out.println("Du har nu afleveret " + description);
+          System.out.println(" ");
           catalogue.returnItem(found);
         }
 

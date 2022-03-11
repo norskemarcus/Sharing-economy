@@ -25,17 +25,8 @@ public class Item {
     //String ledig = isAvailable.toString();
   }
 
-/*
-  public Item(String category, String item, boolean available) {
-    this.category = category;
-    this.description = item;
-    this.isAvailable = available;
-  }
 
-
- */
-
-  public boolean showAvailability(){
+  public boolean showAvailability(){ //bruger jeg denne?
     return isAvailable;
   }
 
@@ -43,7 +34,6 @@ public class Item {
     isAvailable = false;
 
   }
-
 
   public void makeAvailable() {
     isAvailable = true;

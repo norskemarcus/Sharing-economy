@@ -3,8 +3,6 @@ package com.company;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
-
 public class Catalogue {
 
   Scanner sc = new Scanner(System.in);
@@ -33,7 +31,7 @@ public class Catalogue {
 
 
    public Item[] getFullList(){
-     Item[] availables = new Item[counter]; //TODO: Kan denne flyttes op?
+    // Item[] availables = new Item[counter];
 
      for (int i = 0; i < counter ; i++) {
        Item temp = items[i];
